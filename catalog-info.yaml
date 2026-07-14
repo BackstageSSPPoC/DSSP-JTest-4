@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: DSSP-JTest-4
+  annotations:
+    github.com/project-slug: BackstageSSPPoC/DSSP-JTest-4
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: DSSP-JTest-4
+    sonarqube.org/project-key: dssp-jtest-4
+    jenkins.io/job-full-name: Backstage_SSP_PoC/DSSP-JTest-4/main
+    argocd/app-name: dssp-jtest-4-dev
+    prometheus.io/rule: "kube_pod_container_resource_requests{pod=~'dssp-jtest-4.*'}|resource,kube_pod_container_status_restarts_total{pod=~'dssp-jtest-4.*'}|container"
+    prometheus.io/alert: "KubePodCrashLooping,KubeDeploymentReplicasMismatch,KubePodNotReady,KubeContainerWaiting,KubeContainerOOMKilled,KubeDeploymentRolloutStuck"
+    prometheus.io/labels: "namespace=dev"
+  tags:
+    - java-maven
+    - scaffolded
+spec:
+  type: service
+  lifecycle: Dev
+  owner: user:default/chaitanya-shekhar-pandey
+  system: dssp-platform
